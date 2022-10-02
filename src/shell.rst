@@ -38,9 +38,9 @@ System-wide hardenning configs:
    case "$0" in -*)
    	# Only if login shell
    	export TMOUT=1800 2>/dev/null
-   	readonly TMOUT 2>/dev/null
    	;;
    esac
+   readonly TMOUT 2>/dev/null
 
 System-wide useful configs:
 
