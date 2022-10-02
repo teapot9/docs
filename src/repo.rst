@@ -15,6 +15,22 @@ TMPDIR is noexec
    
    APT::ExtractTemplates::TempDir "/run/apt";
 
+Manually installed packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The set of manually installed packages in APT is the list of packages
+that will be kept even if they have no reverse dependencies.
+
+This list can be viewed with ``apt-mark showmanual``.
+
+You can shrink this set by removing packages that are dependencies
+of meta packages.
+
+.. code-block:: console
+   :caption: Minimize manually installed packages set
+
+   # apt-mark minimize-manual
+
 Debian
 ^^^^^^
 
