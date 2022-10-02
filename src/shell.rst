@@ -35,8 +35,12 @@ System-wide hardenning configs:
    :caption: /etc/profile.d/00-default.sh
 
    umask 027
-   export TMOUT=1800 2>/dev/null
-   readonly TMOUT 2>/dev/null
+   case "$0" in -*)
+   	# Only if login shell
+   	export TMOUT=1800 2>/dev/null
+   	readonly TMOUT 2>/dev/null
+   	;;
+   esac
 
 System-wide useful configs:
 
