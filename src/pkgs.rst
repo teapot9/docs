@@ -91,6 +91,12 @@ Hardware
      - | linux-firmware
        | amd-ucode
        | intel-unicode
+   * - Firmware update
+     - | sys-apps/fwupd
+     - | fwupd
+     - | fwupd
+       | fwupd-openrc
+       | fwupd-plugin-all
    * - Drivers
      - | x11-drivers/nvidia-drivers
      - | nvidia-driver
