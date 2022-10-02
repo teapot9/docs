@@ -14,6 +14,7 @@ Linux configuration
    chroot
    cmdline
    crypttab
+   eselect
    firewall
    fstab
    fstrim

@@ -19,6 +19,7 @@ Boot configuration:
 
 System configurations:
 
+ - :doc:`eselect`
  - :doc:`init`
  - :doc:`firewall`
  - :doc:`fstrim`
