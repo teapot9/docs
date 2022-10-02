@@ -13,6 +13,7 @@ Base environment:
 
 Boot configuration:
  - :doc:`cmdline`
+ - :doc:`boot`
  - :doc:`fstab`
  - :doc:`crypttab`
 

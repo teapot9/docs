@@ -10,6 +10,7 @@ Linux configuration
    :maxdepth: 2
    :caption: Contents:
 
+   boot
    chroot
    cmdline
    crypttab
