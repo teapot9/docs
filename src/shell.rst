@@ -58,3 +58,19 @@ System-wide useful configs:
  - ``cp --reflink=auto`` will use a copy-on-write (CoW) copy if available.
  - ``pfile`` and ``pdir`` creates file or directories accessible to others,
    this may be useful when umask defaults to 640.
+
+Environment
+-----------
+
+Environment variables defined in ``/etc/environment`` will always
+be loaded. It is loaded by :doc:`pam` after authenticating.
+
+System-wide useful environment variables:
+
+.. code-block:: unixconfig
+   :caption: /etc/environment
+
+   PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/bin"
+   EDITOR="vi"
+   VISUAL="vim"
+   PAGER="less"
