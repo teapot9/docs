@@ -50,8 +50,8 @@ Debian
    deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
 
 To install packages from backports, run either:
- - `apt install foo/bullseye-backports`
- - `apt install -t bullseye-backports foo`
+ - ``apt install foo/bullseye-backports``
+ - ``apt install -t bullseye-backports foo``
 
 Old-stable-sloppy
 ~~~~~~~~~~~~~~~~~
@@ -63,7 +63,7 @@ However:
  - unsupported / unstable;
  - may cause issues when upgrading between stable releases.
 
-Usage: same as backports, except it is `XXXX-backports-sloppy`.
+Usage: same as backports, except it is ``XXXX-backports-sloppy``.
 
 Ubuntu
 ^^^^^^
@@ -89,11 +89,11 @@ LBU (Alpine local backup)
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In diskless mode, Alpine run entirely in RAM.
-Changes to the filesystem are lost during reboots. Use `lbu ci` to
+Changes to the filesystem are lost during reboots. Use ``lbu ci`` to
 commit changes.
 
-By default, `lbu` will save changes made to `/etc`. To preserve additional
-directories, use `lbu add XXX`.
+By default, ``lbu`` will save changes made to ``/etc``. To preserve additional
+directories, use ``lbu add XXX``.
 
 Configure lbu to keep 3 backups and remove older ones:
 
