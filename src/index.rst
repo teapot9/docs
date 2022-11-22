@@ -11,6 +11,7 @@ Linux configuration
    :caption: Contents:
 
    boot
+   ccache
    chroot
    cmdline
    crypttab

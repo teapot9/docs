@@ -19,6 +19,7 @@ Boot configuration:
 
 System configurations:
 
+ - :doc:`ccache`
  - :doc:`eselect`
  - :doc:`init`
  - :doc:`firewall`
