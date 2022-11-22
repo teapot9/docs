@@ -20,8 +20,24 @@ Umask defines the default permission of newly created files and directories.
 The format is similar to standard permission, but it is NOT-ed.
 
 For instance:
- - ``022`` creates files with ``766`` permissions,
- - ``027`` creates files with ``760`` permissions.
+ - ``022`` creates files with ``644`` permissions, directories with ``755``,
+ - ``027`` creates files with ``640`` permissions, directories with ``750``.
+
+Since files are created by default without execute bit, umask will not change
+that, it is only a restriction.
+Files are created with ``666`` and directories with ``777``.
+
+Let *umask* be the ``UMASK`` permissions, *perm* the ``touch`` or ``mkdir``
+permissions, and *effective* the real permissions of the created file.
+
+.. math::
+
+   effective = perm \land \overline{umask}
+
+TMOUT
+-----
+
+Automatically closes the shell after ``TMOUT`` seconds of inactivity.
 
 Profile
 -------
@@ -35,11 +51,9 @@ System-wide hardenning configs:
    :caption: /etc/profile.d/00-default.sh
 
    umask 027
-   case "$0" in -*)
-   	# Only if login shell
+   if [ "$(id -u)" -eq 0 ]; then
    	export TMOUT=1800 2>/dev/null
-   	;;
-   esac
+   fi
    readonly TMOUT 2>/dev/null
 
 System-wide useful configs:
@@ -56,8 +70,7 @@ System-wide useful configs:
    alias pdir='install -d -m 755'
    
    export PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/bin'
-
-~
+..
 
  - ``cp --reflink=auto`` will use a copy-on-write (CoW) copy if available.
  - ``pfile`` and ``pdir`` creates file or directories accessible to others,

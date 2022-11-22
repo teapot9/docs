@@ -46,16 +46,16 @@ Configurations
 .. code-block:: unixconfig
    :caption: /etc/fstab
 
-   XXXX		/				XXXX		relatime					0 1
-   XXXX		/boot				XXXX		nodev,nosuid,noexec,noatime			0 2
-   XXXX		/boot/efi			vfat		nodev,nosuid,noexec,noatime,umask=0077		0 2
-   XXXX		/home				XXXX		nodev,nosuid,lazytime				0 2
-   XXXX		/var				XXXX		nodev,nosuid,noexec,relatime			0 2
-   XXXX		none				swap		sw,discard=once					0 0
+   XXXX		/				XXXX		relatime							0 1
+   XXXX		/boot				XXXX		nodev,nosuid,noexec,noatime					0 2
+   XXXX		/boot/efi			vfat		nodev,nosuid,noexec,noatime,umask=0077,errors=remount-ro	0 2
+   XXXX		/home				XXXX		nodev,nosuid,lazytime						0 2
+   XXXX		/var				XXXX		nodev,nosuid,noexec,relatime					0 2
+   XXXX		none				swap		sw,discard=once					     		0 0
    
-   tmpfs	/tmp				tmpfs		nodev,nosuid,noexec,noatime,size=2g,mode=1777	0 0
-   shm		/dev/shm			tmpfs		nodev,nosuid,noexec,noatime			0 0
-   efivarfs	/sys/firmware/efi/efivars	efivarfs	ro,nodev,nosuid,noexec				0 0
+   tmpfs	/tmp				tmpfs		nodev,nosuid,noexec,noatime,size=2g,mode=1777			0 0
+   shm		/dev/shm			tmpfs		nodev,nosuid,noexec,noatime					0 0
+   efivarfs	/sys/firmware/efi/efivars	efivarfs	ro,nodev,nosuid,noexec						0 0
 
 EFI partition: FAT32 does not have permissions, so we set default permissions
 for all files to be ``700`` for all files with `umask=0077`.

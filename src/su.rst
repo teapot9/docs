@@ -23,7 +23,7 @@ doas
 .. code-block::
    :caption: /etc/doas.conf
 
-   permit persist setenv { PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" } :wheel
+   permit persist setenv { TMOUT=1800 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" } :wheel
 
 sudo
 ----
@@ -32,6 +32,7 @@ sudo
    :caption: /etc/sudoers
 
    Defaults	secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+   Defaults	env_keep+="TMOUT"
    %wheel  ALL=(ALL:ALL) ALL
 
 Both of these configurations hardcode the PATH environment variable

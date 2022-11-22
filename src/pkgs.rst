@@ -167,10 +167,21 @@ Packages notes
 vim
 ^^^
 
-Disable mouse by default:
+.. code-block::
+   :caption: /etc/vim/vimrc.local
+
+   " Disable mouse by default
+   set mouse=
+   set ttymouse=
+
 
 .. code-block::
    :caption: /etc/vim/vimrc.local
 
-   set mouse=
-   set ttymouse=
+   " Enable using CTRL+left and CTRL+right to move backward and forward
+   map <Esc>[1;5D <C-Left>
+   cmap <Esc>[1;5D <C-Left>
+   imap <Esc>[1;5D <C-Left>
+   map <Esc>[1;5C <C-Right>
+   cmap <Esc>[1;5C <C-Right>
+   imap <Esc>[1;5C <C-Right>
