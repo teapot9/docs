@@ -47,3 +47,6 @@ Add custom executables with update-alternatives:
 
    # update-alternatives --install /usr/bin/editor editor /usr/bin/vi 100
    # update-alternatives --install /usr/bin/visual visual /usr/bin/vim 100
+   # mkdir -p -m 755 /usr/local/libexec/busybox
+   # busybox --install -s /usr/local/libexec/busybox
+   # update-alternatives --install /usr/bin/vi vi /usr/local/libexec/busybox/vi 100
