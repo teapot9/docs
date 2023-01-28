@@ -90,3 +90,17 @@ Command-line:
  - ``-s``: disable password login
  - ``-T 3``: maximum authentication tries
  - ``-j -k``: disable local and remote port forwarding
+
+Restrict authorized keys management to root
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+With Dropbear, you cannot customize the path of the ``authorized_keys`` file.
+However, you can make the file writeable only by root by making it
+immutable.
+
+.. code-block:: console
+   :caption: Make authorized_keys immutable
+
+   # chattr +i /home/*/.ssh/authorized_keys
+
+You can remove the immutable attribute with the ``chattr -i`` command.
