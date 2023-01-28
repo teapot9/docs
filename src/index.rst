@@ -22,6 +22,7 @@ Linux configuration
    hosts
    init
    install
+   iscsi
    limits
    misc
    pam
