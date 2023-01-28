@@ -39,6 +39,7 @@ CIFS:
  - ``mfsymlinks``: enable support for symlinks (non-native format)
  - ``vers``: SMB protocol version
  - ``soft``: return error if the server does not responds (do not hang)
+ - ``hard``: opposite of ``soft``: hang until the read/write succeed
 
 Configurations
 --------------
