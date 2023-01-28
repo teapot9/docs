@@ -22,3 +22,15 @@ Hardenning
    other module from the same filesystem; this will probably cause issues if
    the first module is loaded from initramfs
  - ``slab_nomerge``: may have performance impact on memory management
+
+Zswap
+-----
+
+`Zswap <https://www.kernel.org/doc/html/latest/admin-guide/mm/zswap.html>`_
+is a compressed cache for swap.
+
+ - ``zswap.enabled=1``: enable zswap
+ - ``zswap.compressor=zstd``: select compression algorithm (lzo, lz4, lz4hc,
+   deflate, ...)
+
+To check the current state of Zswap: ``grep '' /sys/module/zswap/parameters/*``.
