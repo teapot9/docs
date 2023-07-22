@@ -27,3 +27,10 @@ Alpine's hostname configuration sometimes refuse valid hostnames
 (e.g. capital letters).
 
 Edit `/etc/hostname` to change it manually.
+
+Install Alpine without SWAP
+---------------------------
+
+By default, Alpine install script will create a SWAP partition on the
+system drive. To disable this behavior, export ``SWAP_SIZE=0`` in your
+environment.
