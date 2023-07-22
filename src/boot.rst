@@ -19,3 +19,10 @@ keep it enabled if you have dual boot.
 Update grub config:
  - ``update-grub``
  - ``grub-mkconfig -o /boot/grub/grub.cfg``
+
+Kernel cmdline
+^^^^^^^^^^^^^^
+
+There are two variables containing kernel cmdline in GRUB:
+ - ``GRUB_CMDLINE_LINUX``: will always be used
+ - ``GRUB_CMDLINE_LINUX_DEFAULT``: will not be used when booting in recovery
