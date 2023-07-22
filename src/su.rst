@@ -24,6 +24,7 @@ doas
    :caption: /etc/doas.conf
 
    permit persist setenv { TMOUT=1800 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" } :wheel
+   permit nopass setenv { TMOUT=1800 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" } root
 
 Note: if busybox binaries are installed to another directory, you can
 add the directory (e.g. ``/usr/libexec/busybox``).
