@@ -13,9 +13,9 @@ Create wheel group, add root to it, and create new admin account:
 
  - Using busybox utils:
 
-   - ``adduser -g teapot -s /bin/sh teapot``
-   - ``addgroup -S wheel root``
-   - ``addgroup -S wheel teapot``
+   - ``adduser -g Teapot -s /bin/sh teapot``
+   - ``addgroup -S root wheel``
+   - ``addgroup -S teapot wheel``
 
 doas
 ----
@@ -24,6 +24,9 @@ doas
    :caption: /etc/doas.conf
 
    permit persist setenv { TMOUT=1800 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin" } :wheel
+
+Note: if busybox binaries are installed to another directory, you can
+add the directory (e.g. ``/usr/libexec/busybox``).
 
 sudo
 ----
