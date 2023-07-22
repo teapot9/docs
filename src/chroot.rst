@@ -1,6 +1,8 @@
 chroot
 ======
 
+Source: `Gentoo Handbook <https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Base#Copy_DNS_info>`_
+
 We will use ``${CHROOT}`` to refer to the root of the chroot.
 
 Copy DNS configuration
