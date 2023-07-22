@@ -32,6 +32,7 @@ Restrict unprivileged users:
    - :sysctl:`kernel.yama.ptrace_scope`
    - dev.tty.ldisc_autoload:
      require privileges to load :doc:`kernel:driver-api/tty/tty_ldisc`
+   - :sysctl:`kernel.core_uses_pid`: use PID for coredump filename
 
 BPF:
 
@@ -60,11 +61,13 @@ Network:
 
    - net.ipv4.conf.all.accept_redirects
    - net.ipv4.conf.all.accept_source_route
+   - net.ipv4.conf.all.log_martians: log packets with bad address
    - net.ipv4.conf.all.rp_filter
    - net.ipv4.conf.all.secure_redirects
    - net.ipv4.conf.all.send_redirects
    - net.ipv4.conf.default.accept_redirects
    - net.ipv4.conf.default.accept_source_route
+   - net.ipv4.conf.default.log_martians
    - net.ipv4.conf.default.rp_filter
    - net.ipv4.conf.default.secure_redirects
    - net.ipv4.conf.default.send_redirects
@@ -86,6 +89,7 @@ Network:
    kernel.kptr_restrict = 2
    kernel.perf_event_paranoid = 3
    kernel.yama.ptrace_scope = 1
+   kernel.core_uses_pid = 1
    
    # BPF
    kernel.unprivileged_bpf_disabled = 1
@@ -101,10 +105,12 @@ Network:
    
    # Network security
    net.ipv4.conf.all.accept_redirects = 0
+   net.ipv4.conf.all.log_martians = 1
    net.ipv4.conf.all.rp_filter = 1
    net.ipv4.conf.all.secure_redirects = 0
    net.ipv4.conf.all.send_redirects = 0
    net.ipv4.conf.default.accept_redirects = 0
+   net.ipv4.conf.default.log_martians = 1
    net.ipv4.conf.default.rp_filter = 1
    net.ipv4.conf.default.secure_redirects = 0
    net.ipv4.conf.default.send_redirects = 0
