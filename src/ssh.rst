@@ -7,8 +7,8 @@ Close innactive sessions
 .. code-block:: unixconfig
    :caption: /etc/ssh/sshd_config
 
-   ClientAliveInterval 600
-   ClientAliveCountMax 3
+   ClientAliveInterval 300
+   ClientAliveCountMax 2
    LoginGraceTime 10
 
 Harden SSH
@@ -21,6 +21,7 @@ Harden SSH
    AllowAgentForwarding no
    AllowTcpForwarding no
    PermitTunnel no
+   MaxSessions 4
 
 Harden authentication
 ---------------------
@@ -28,12 +29,14 @@ Harden authentication
 .. code-block:: unixconfig
    :caption: /etc/ssh/sshd_config
 
+   MaxAuthTries 3
    PermitRootLogin no
    PermitEmptyPasswords no
    PasswordAuthentication no
    KbdInteractiveAuthentication no
    KerberosAuthentication no
    GSSAPIAuthentication no
+   PrintLastLog yes
 
 Harden for servers
 ------------------
