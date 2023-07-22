@@ -24,6 +24,7 @@ Linux configuration
    install
    iscsi
    limits
+   login
    misc
    pam
    pkgs

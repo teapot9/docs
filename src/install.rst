@@ -26,6 +26,7 @@ System configurations:
  - :doc:`fstrim`
  - :doc:`hosts`
  - :doc:`limits`
+ - :doc:`login`
  - :doc:`pam`
  - :doc:`sysctl`
  - :doc:`ssh`
