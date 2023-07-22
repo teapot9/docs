@@ -16,6 +16,7 @@ Limits
  - ``memlock``: maximum locked-in-memory address space
    (this prevent from being swapped for instance).
  - ``nice``: minimum nice value (max priority) allowed to be set [-20, 19].
+ - ``core``: limit size of core dumps, can be disabled with 0.
 
 Configuration
 -------------
@@ -29,5 +30,6 @@ Configuration
    *		hard	nofile		524288
    *		soft	memlock		128
    *		hard	memlock		256
+   *		-	core		0
    @wheel	-	nice		-5
    @kernel	-	nice		-5
