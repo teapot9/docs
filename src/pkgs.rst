@@ -167,15 +167,22 @@ Packages notes
 vim
 ^^^
 
-.. code-block::
+.. code-block:: vim
    :caption: /etc/vim/vimrc.local
 
+   " Source the defaults vim file
+   if ! exists('skip_defaults_vim')
+   	source $VIMRUNTIME/defaults.vim
+   endif
+   " Avoid loading the defaults twice
+   let g:skip_defaults_vim = 1
+   
    " Disable mouse by default
    set mouse=
-   set ttymouse=
+   "set ttymouse=
 
 
-.. code-block::
+.. code-block:: vim
    :caption: /etc/vim/vimrc.local
 
    " Enable using CTRL+left and CTRL+right to move backward and forward
