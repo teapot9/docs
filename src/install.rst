@@ -15,7 +15,7 @@ Boot configuration:
  - :doc:`cmdline`
  - :doc:`boot`
  - :doc:`fstab`
- - :doc:`crypttab`
+ - :doc:`crypt`
 
 System configurations:
 

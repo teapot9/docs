@@ -14,7 +14,7 @@ Linux configuration
    ccache
    chroot
    cmdline
-   crypttab
+   crypt
    eselect
    firewall
    fstab
