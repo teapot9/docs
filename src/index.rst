@@ -10,11 +10,12 @@ Linux configuration
    :maxdepth: 2
    :caption: Contents:
 
-   boot
+   auth
    ccache
    chroot
-   cmdline
+   linux
    crypt
+   display
    eselect
    firewall
    fstab
@@ -23,15 +24,12 @@ Linux configuration
    init
    install
    iscsi
-   limits
-   login
    misc
    pam
-   pkgs
-   repo
+   apps
+   pkgmgr
    shell
    ssh
-   su
    sysctl
    trouble
 

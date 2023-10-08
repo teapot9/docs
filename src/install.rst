@@ -7,27 +7,25 @@ the system.
 Base environment:
 
  - :doc:`shell`
- - :doc:`repo`
- - :doc:`pkgs`
- - :doc:`su`
+ - :doc:`pkgmgr`
+ - :doc:`apps`
+ - :doc:`auth`
 
 Boot configuration:
- - :doc:`cmdline`
- - :doc:`boot`
- - :doc:`fstab`
+ - :doc:`linux`
  - :doc:`crypt`
+ - :doc:`fstab`
 
 System configurations:
 
  - :doc:`ccache`
+ - :doc:`display`
  - :doc:`eselect`
- - :doc:`init`
  - :doc:`firewall`
  - :doc:`fstrim`
  - :doc:`hosts`
- - :doc:`limits`
- - :doc:`login`
- - :doc:`pam`
- - :doc:`sysctl`
- - :doc:`ssh`
+ - :doc:`init`
  - :doc:`misc`
+ - :doc:`pam`
+ - :doc:`ssh`
+ - :doc:`sysctl`

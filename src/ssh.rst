@@ -104,6 +104,11 @@ immutable.
 .. code-block:: console
    :caption: Make authorized_keys immutable
 
-   # chattr +i /home/*/.ssh/authorized_keys
+   # install -d -o ${user} -g ${user} -m 751 /home/${user?undefined}/.ssh
+   # touch -a /home/${user}/.ssh/authorized_keys
+   # chown root:${user} /home/${user}/.ssh/authorized_keys
+   # chmod 640 /home/${user}/.ssh/authorized_keys
+   # vi /home/${user}/.ssh/authorized_keys
+   # chattr +i /home/${user}/.ssh/authorized_keys
 
 You can remove the immutable attribute with the ``chattr -i`` command.

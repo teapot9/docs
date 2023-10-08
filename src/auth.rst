@@ -1,5 +1,8 @@
+Authentication
+==============
+
 doas / sudo
-===========
+-----------
 
 Configure root password: ``passwd root``.
 
@@ -7,18 +10,31 @@ Create wheel group, add root to it, and create new admin account:
 
  - Using shadow utils:
 
-   - ``groupadd -r wheel``
-   - ``usermod -aG wheel root``
-   - ``useradd -c Teapot -G wheel -m -s /bin/sh teapot``
+.. code-block:: console
+
+   # groupadd -r wheel
+   # usermod -aG wheel root
+   # useradd -c Teapot -G wheel -m -s /bin/sh teapot
+..
 
  - Using busybox utils:
 
-   - ``adduser -g Teapot -s /bin/sh teapot``
-   - ``addgroup -S root wheel``
-   - ``addgroup -S teapot wheel``
+.. code-block:: console
+
+   # adduser -g Teapot -s /bin/sh teapot
+   # addgroup -S root wheel
+   # addgroup -S teapot wheel
+
+
+You may want to prevent other users from accessing your home directory freely.
+
+.. code-block:: console
+
+   # chmod 0751 /home/*
+   # chmod 700 /root
 
 doas
-----
+^^^^
 
 .. code-block::
    :caption: /etc/doas.conf
@@ -30,7 +46,7 @@ Note: if busybox binaries are installed to another directory, you can
 add the directory (e.g. ``/usr/libexec/busybox``).
 
 sudo
-----
+^^^^
 
 .. code-block::
    :caption: /etc/sudoers

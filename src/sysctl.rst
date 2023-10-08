@@ -8,6 +8,7 @@ System configuration
  - Enable :doc:`kernel:admin-guide/sysrq`: :sysctl:`kernel.sysrq`
  - Swappiness: :sysctl:`vm.swappiness`
  - Cache pressure: :sysctl:`vm.vfs_cache_pressure`
+ - Kernel logs on console: :sysctl:`kernel.printk`
 
 
 .. code-block:: unixconfig
@@ -16,6 +17,7 @@ System configuration
    # System configuration
    kernel.panic = 60
    kernel.sysrq = 244
+   kernel.printk = 3 5 2 7
 
 This config reboots 60s after kernel panic, and enables most sysrq
 (except debug).
@@ -33,6 +35,17 @@ Restrict unprivileged users:
    - dev.tty.ldisc_autoload:
      require privileges to load :doc:`kernel:driver-api/tty/tty_ldisc`
    - :sysctl:`kernel.core_uses_pid`: use PID for coredump filename
+   - :sysctl:`vm.unprivileged_userfaultfd`: restrict ptrace syscall usage
+
+Memory:
+
+ - :doc:`kernel:admin-guide/sysctl/vm`
+
+   - Increase ASLR randomization: maximum value is defined in the
+     kenrel config
+
+     - :sysctl:`vm.mmap_rnd_bits`: CONFIG_ARCH_MMAP_RND_BITS_MAX
+     - :sysctl:`vm.mmap_rnd_compat_bits`: CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MAX
 
 BPF:
 
@@ -90,6 +103,11 @@ Network:
    kernel.perf_event_paranoid = 3
    kernel.yama.ptrace_scope = 1
    kernel.core_uses_pid = 1
+   vm.unprivileged_userfaultfd = 0
+   
+   # Memory
+   vm.mmap_rnd_bits = ${CONFIG_ARCH_MMAP_RND_BITS_MAX}
+   vm.mmap_rnd_compat_bits = ${CONFIG_ARCH_MMAP_RND_COMPAT_BITS_MAX}
    
    # BPF
    kernel.unprivileged_bpf_disabled = 1
@@ -133,10 +151,18 @@ Hardenning configurations
 
    - :sysctl:`kernel.dmesg_restrict`
    - :sysctl:`kernel.kexec_load_disabled`
+   - :sysctl:`kernel.unprivileged_userns_clone`: disables unprivileged
+     user namespaces (**warning**: this will break containers and web browsers)
+   - :sysctl:`kernel.panic_on_oops`
 
  - :doc:`kernel:admin-guide/LSM/Yama`
 
    - kernel.yama.ptrace_scope
+
+ - :doc:`kernel:admin-guide/sysctl/user`
+
+   - :sysctl:`user.max_user_namespaces`: disables user namespaces
+     (**warning**: this will break containers and web browsers)
 
 .. code-block:: unixconfig
    :caption: /etc/sysctl.conf
@@ -145,6 +171,9 @@ Hardenning configurations
    kernel.dmesg_restrict = 1
    kernel.yama.ptrace_scope = 3
    kernel.kexec_load_disabled = 1
+   user.max_user_namespaces = 0
+   kernel.unprivileged_userns_clone = 0
+   kernel.panic_on_oops = 1
 
 Performance configurations
 --------------------------
